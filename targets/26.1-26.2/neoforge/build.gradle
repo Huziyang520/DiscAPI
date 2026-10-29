@@ -1,13 +1,18 @@
 plugins {
-    id 'multiloader-loader'
+    id 'multiloader-common'
     id 'net.neoforged.moddev'
 }
 
+sourceSets.main.java.setSrcDirs([rootProject.file('../../common/src/main/java'),
+                                 rootProject.file('../../neoforge/src/main/java')])
+sourceSets.main.resources.setSrcDirs([rootProject.file('../../common/src/main/resources'),
+                                      rootProject.file('../../neoforge/src/main/resources')])
+
 neoForge {
     version = neoforge_version
-    def at = project(':common').file('src/main/resources/META-INF/accesstransformer.cfg')
+    def at = rootProject.file('../../common/src/main/resources/META-INF/accesstransformer.cfg')
     if (at.exists()) {
-        accessTransformers.from(at.absolutePath)
+        accessTransforms.from(at.absolutePath)
     }
     runs {
         configureEach {
@@ -32,8 +37,7 @@ neoForge {
 }
 
 dependencies {
-    compileOnly(rootProject.files("libs/keenlib-${keenlib_version}-neoforge-${minecraft_version}.jar"))
-}
+    compileOnly(rootProject.files("../../libs/keenlib-${keenlib_version}-neoforge-${target_label}.jar"))}
 
 def loaderAttribute = Attribute.of('io.github.mcgradleconventions.loader', String)
 ['apiElements', 'runtimeElements', 'sourcesElements', 'javadocElements'].each { variant ->

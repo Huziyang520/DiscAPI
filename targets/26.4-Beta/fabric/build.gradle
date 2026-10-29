@@ -1,0 +1,53 @@
+plugins {
+    id 'multiloader-common'
+    id 'net.fabricmc.fabric-loom'
+}
+
+sourceSets.main.java.setSrcDirs([rootProject.file('../../common/src/main/java'),
+                                 rootProject.file('../../fabric/src/main/java')])
+sourceSets.main.resources.setSrcDirs([rootProject.file('../../common/src/main/resources'),
+                                      rootProject.file('../../fabric/src/main/resources')])
+
+dependencies {
+    minecraft("com.mojang:minecraft:${minecraft_version}")
+    implementation("net.fabricmc:fabric-loader:${fabric_loader_version}")
+    compileOnly(rootProject.files("../../libs/keenlib-${keenlib_version}-fabric-${target_label}.jar"))}
+
+loom {
+    def aw = rootProject.file('../../common/src/main/resources/discapi.accesswidener')
+    if (aw.exists()) {
+        accessWidenerPath.set(aw)
+    }
+    runs {
+        client {
+            client()
+            setConfigName('Fabric Client')
+            ideConfigGenerated(true)
+            runDir('runs/client')
+        }
+        server {
+            server()
+            setConfigName('Fabric Server')
+            ideConfigGenerated(true)
+            runDir('runs/server')
+        }
+    }
+}
+
+def loaderAttribute = Attribute.of('io.github.mcgradleconventions.loader', String)
+['apiElements', 'runtimeElements', 'sourcesElements', 'javadocElements', 'includeInternal', 'modCompileClasspath'].each { variant ->
+    configurations.matching { it.name == variant }.configureEach {
+        attributes {
+            attribute(loaderAttribute, 'fabric')
+        }
+    }
+}
+sourceSets.configureEach {
+    [it.compileClasspathConfigurationName, it.runtimeClasspathConfigurationName].each { variant ->
+        configurations.matching { it.name == variant }.configureEach {
+            attributes {
+                attribute(loaderAttribute, 'fabric')
+            }
+        }
+    }
+}

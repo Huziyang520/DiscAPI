@@ -20,8 +20,6 @@ plugins {
     id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
 }
 
-rootProject.name = 'DiscAPI'
-includeBuild('build-logic')
-include('common')
-include('fabric')
-include('neoforge')
+rootProject.name = '唱片API-26.1-26.2'
+includeBuild('../../build-logic')
+include('fabric', 'neoforge')

@@ -12,6 +12,11 @@
         "type": "minecraft:custom_model_data",
         "index": 1,
         "default": -1184275
+      },
+      {
+        "type": "minecraft:custom_model_data",
+        "index": 2,
+        "default": -14803426
       }
     ]
   }

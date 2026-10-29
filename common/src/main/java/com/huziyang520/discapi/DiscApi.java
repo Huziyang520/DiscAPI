@@ -2,11 +2,11 @@ package com.huziyang520.discapi;
 
 import com.huziyang520.keenlib.registry.KeenRegistry;
 import com.huziyang520.keenlib.text.KeenText;
-import com.mojang.serialization.Codec;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.ComponentSerialization;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
@@ -24,7 +24,7 @@ public final class DiscApi {
     private static final KeenRegistry REGISTRY = KeenRegistry.of(Constants.MOD_ID);
 
     private static Holder<Item> disc;
-    private static Holder<DataComponentType<String>> artist;
+    private static Holder<DataComponentType<Component>> artist;
     private static boolean initialized;
 
     private DiscApi() {
@@ -40,7 +40,7 @@ public final class DiscApi {
         }
         initialized = true;
 
-        artist = REGISTRY.component("artist", Codec.STRING, ByteBufCodecs.STRING_UTF8);
+        artist = REGISTRY.component("artist", ComponentSerialization.CODEC, ComponentSerialization.STREAM_CODEC);
         disc = REGISTRY.item("disc", DiscItem::new);
         REGISTRY.tab("main",
                 KeenText.trans("itemGroup.discapi.main", "DiscAPI"),
@@ -57,7 +57,7 @@ public final class DiscApi {
         return disc;
     }
 
-    public static DataComponentType<String> artist() {
+    public static DataComponentType<Component> artist() {
         return artist == null ? null : artist.value();
     }
 
