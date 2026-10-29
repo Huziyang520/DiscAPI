@@ -37,7 +37,16 @@ neoForge {
 }
 
 dependencies {
-    compileOnly(rootProject.files("../../libs/keenlib-${keenlib_version}-neoforge-${target_label}.jar"))}
+    compileOnly(rootProject.files("../../libs/keenlib-${keenlib_version}-neoforge-${target_label}.jar"))
+    def jadeJar = project.findProperty('jade_jar_neoforge') ?: ''
+    if (jadeJar) {
+        compileOnly(rootProject.files("../../libs/${jadeJar}"))
+    }
+}
+
+if (!(project.findProperty('jade_jar_neoforge') ?: '')) {
+    sourceSets.main.java.exclude('com/huziyang520/discapi/compat/**')
+}
 
 def loaderAttribute = Attribute.of('io.github.mcgradleconventions.loader', String)
 ['apiElements', 'runtimeElements', 'sourcesElements', 'javadocElements'].each { variant ->

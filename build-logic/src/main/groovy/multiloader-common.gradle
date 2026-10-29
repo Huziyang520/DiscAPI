@@ -53,6 +53,7 @@ processResources {
             'minecraft_version'       : minecraft_version,
             'minecraft_version_range' : minecraft_version_range,
             'minecraft_version_range_fabric': project.findProperty('minecraft_version_range_fabric') ?: '',
+            'jade_entrypoint': project.findProperty('jade_entrypoint') ?: '[]',
             'fabric_version'          : fabric_version,
             'fabric_loader_version'   : fabric_loader_version,
             'mod_name'                : mod_name,

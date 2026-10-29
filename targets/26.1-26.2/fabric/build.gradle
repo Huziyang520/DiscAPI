@@ -11,7 +11,16 @@ sourceSets.main.resources.setSrcDirs([rootProject.file('../../common/src/main/re
 dependencies {
     minecraft("com.mojang:minecraft:${minecraft_version}")
     implementation("net.fabricmc:fabric-loader:${fabric_loader_version}")
-    compileOnly(rootProject.files("../../libs/keenlib-${keenlib_version}-fabric-${target_label}.jar"))}
+    compileOnly(rootProject.files("../../libs/keenlib-${keenlib_version}-fabric-${target_label}.jar"))
+    def jadeJar = project.findProperty('jade_jar_fabric') ?: ''
+    if (jadeJar) {
+        compileOnly(rootProject.files("../../libs/${jadeJar}"))
+    }
+}
+
+if (!(project.findProperty('jade_jar_fabric') ?: '')) {
+    sourceSets.main.java.exclude('com/huziyang520/discapi/compat/**')
+}
 
 loom {
     def aw = rootProject.file('../../common/src/main/resources/discapi.accesswidener')
