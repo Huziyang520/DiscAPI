@@ -63,6 +63,7 @@ processResources {
             'credits'                 : credits,
             'java_version'            : java_version,
             'keenlib_version'         : keenlib_version,
+            'block_mixin'             : project.findProperty('block_mixin') ?: '',
             'discapi_version'         : project.findProperty('discapi_version') ?: '0.0.0'
     ]
 
