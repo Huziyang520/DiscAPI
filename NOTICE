@@ -1,0 +1,15 @@
+DiscAPI — asset notice
+
+Code
+  All source files and compiled classes are released under CC0 1.0 Universal (see LICENSE).
+
+Textures — derived from vanilla Minecraft
+  assets/discapi/textures/item/disc_base.png and disc_center.png are reworked from vanilla music
+  disc textures (silhouette and shading reused as grayscale masks). Vanilla Minecraft assets stay
+  Mojang's property, so these two files are not covered by CC0 and reuse of them should follow the
+  usual Minecraft modding terms. Everything else (models, lang, icon) is original.
+
+素材声明
+  源码：以 CC0 1.0 发布（见 LICENSE）。
+  贴图 disc_base.png / disc_center.png 改自原版唱片贴图，相关权利仍属 Mojang，不在 CC0 覆盖范围内；
+  其余（模型、语言文件、图标）为原创。
