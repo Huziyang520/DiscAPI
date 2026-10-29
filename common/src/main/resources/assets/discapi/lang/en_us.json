@@ -1,5 +1,6 @@
 {
   "item.discapi.disc": "Music Disc",
   "itemGroup.discapi.main": "DiscAPI",
-  "tooltip.discapi.artist": "Artist: %s"
+  "tooltip.discapi.artist": "Artist: %s",
+  "modmenu.discapi.backup": "Backup feedback"
 }

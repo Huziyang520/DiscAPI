@@ -63,7 +63,7 @@ KeenRegistry registry = KeenRegistry.of("mymod");
 registry.item("my_disc", DiscApi.discFactory(DiscApi.songKey("mymod", "my_song")));
 ```
 
-The item model then points at `discapi:item/disc_template`; see `assets/sivon/items/` in the Sivon mod for a two-color example.
+The item model then points at `discapi:item/disc_template`.
 
 ### Requirements
 
@@ -140,7 +140,7 @@ KeenRegistry registry = KeenRegistry.of("mymod");
 registry.item("my_disc", DiscApi.discFactory(DiscApi.songKey("mymod", "my_song")));
 ```
 
-物品模型指向 `discapi:item/disc_template`；双色示例见司凤模组的 `assets/sivon/items/`。
+物品模型指向 `discapi:item/disc_template`。
 
 ### 前置与可选
 

@@ -1,5 +1,6 @@
 {
   "item.discapi.disc": "唱片",
   "itemGroup.discapi.main": "唱片 API",
-  "tooltip.discapi.artist": "作者：%s"
+  "tooltip.discapi.artist": "作者：%s",
+  "modmenu.discapi.backup": "备用反馈地址"
 }

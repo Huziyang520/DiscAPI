@@ -8,7 +8,7 @@
         "${mod_author}"
     ],
     "contact": {
-        "homepage": "https://www.curseforge.com/minecraft/mc-mods/discapi",
+        "homepage": "https://github.com/Huziyang520/DiscAPI",
         "issues": "https://github.com/Huziyang520/DiscAPI/issues"
     },
     "license": "${license}",
@@ -26,6 +26,11 @@
         "java": ">=${java_version}"
     },
     "custom": {
+        "modmenu": {
+            "links": {
+                "modmenu.discapi.backup": "https://issue.mengcai.online/"
+            }
+        },
         "modmenu": {
             "badges": [
                 "library"
