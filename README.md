@@ -72,7 +72,7 @@ The item model then points at `discapi:item/disc_template`.
 
 ### License
 
-Source code is released under [CC0 1.0 Universal](LICENSE). The disc texture template is reworked from vanilla Minecraft textures, so those two PNGs are **not** covered by CC0 — see [NOTICE](NOTICE).
+Released under [CC0 1.0 Universal](LICENSE).
 
 ### Links
 
@@ -149,7 +149,7 @@ registry.item("my_disc", DiscApi.discFactory(DiscApi.songKey("mymod", "my_song")
 
 ### 许可证
 
-源码以 [CC0 1.0 Universal](LICENSE) 发布。唱片纹理模板改自原版贴图，那两张 PNG **不在** CC0 覆盖范围内，详见 [NOTICE](NOTICE)。
+本项目基于 [CC0 1.0 Universal](LICENSE) 发布。
 
 ### 链接
 
