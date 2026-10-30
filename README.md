@@ -13,6 +13,7 @@ A small library for adding custom music discs. It provides one generic disc item
 - **Colorable texture template**: the disc art is split into an outer ring and an inner ring, both tinted per item, so every disc can look different without new textures.
 - **Artist line**: an optional `discapi:artist` component shows "Artist: ..." in the tooltip.
 - **Creative tab** with the generic disc, so it can be tested without commands.
+- **Jade integration** (optional, no dependency bundled): looking at a playing jukebox shows a music-player style progress bar with the current position and total length.
 
 ### Adding a disc with a datapack
 
@@ -90,6 +91,7 @@ Released under [CC0 1.0 Universal](LICENSE).
 - **可染色纹理模板**：唱片贴图拆成外圈与内圈两层，各自按物品染色，因此不需要新贴图就能让每张唱片外观不同。
 - **作者行**：可选的 `discapi:artist` 组件会在提示里显示「作者：……」。
 - **创造模式标签页**内置通用唱片，不用命令也能直接取来试。
+- **Jade 联动**（可选，不内置依赖）：看向正在播放的唱片机时，显示音乐播放器样式的进度条，含当前时间与总时长。
 
 ### 用数据包新增一张唱片
 

@@ -4,7 +4,8 @@ plugins {
 }
 
 sourceSets.main.java.setSrcDirs([rootProject.file('../../common/src/main/java'),
-                                 rootProject.file('../../neoforge/src/main/java')])
+                                 rootProject.file('../../neoforge/src/main/java'),
+                                 rootProject.file('neoforge/src/main/java')])
 sourceSets.main.resources.setSrcDirs([rootProject.file('../../common/src/main/resources'),
                                       rootProject.file('../../neoforge/src/main/resources')])
 

@@ -3,5 +3,7 @@
   "itemGroup.discapi.main": "DiscAPI",
   "tooltip.discapi.artist": "Artist: %s",
   "modmenu.discapi.backup": "Backup feedback",
-  "jade.discapi.progress": "Playing %s / %s"
+  "jade.discapi.progress": "Playing %s / %s",
+  "config.jade.plugin_discapi.jukebox_progress": "Jukebox song progress",
+  "jade.discapi.time": "%s / %s"
 }

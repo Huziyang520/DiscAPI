@@ -3,5 +3,7 @@
   "itemGroup.discapi.main": "唱片 API",
   "tooltip.discapi.artist": "作者：%s",
   "modmenu.discapi.backup": "备用反馈地址",
-  "jade.discapi.progress": "播放进度 %s / %s"
+  "jade.discapi.progress": "播放进度 %s / %s",
+  "config.jade.plugin_discapi.jukebox_progress": "唱片机播放进度",
+  "jade.discapi.time": "%s / %s"
 }

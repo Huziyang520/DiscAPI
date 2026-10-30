@@ -17,18 +17,20 @@ import snownee.jade.api.IBlockComponentProvider;
 import snownee.jade.api.ITooltip;
 import snownee.jade.api.config.IPluginConfig;
 
-/** Client half: draws the progress bar plus elapsed and total time, interpolated between server ticks. */
-public enum JukeboxProgressProvider implements IBlockComponentProvider {
+/** Client half: draws a music-player style progress bar with elapsed and total time. */
+public class JukeboxProgressProvider implements IBlockComponentProvider {
 
-    INSTANCE;
+    public static final JukeboxProgressProvider INSTANCE = new JukeboxProgressProvider();
 
     private static final Identifier UID = Identifier.fromNamespaceAndPath("discapi", "jukebox_progress");
-    private static final int BARS = 20;
     private static final long TICK_MILLIS = 50L;
 
     private static String clockSong = "";
     private static int clockTicks;
     private static long clockAt;
+
+    protected JukeboxProgressProvider() {
+    }
 
     @Override
     public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
@@ -67,9 +69,7 @@ public enum JukeboxProgressProvider implements IBlockComponentProvider {
         }
 
         int elapsed = elapsed(songKey, total, base);
-        tooltip.add(Component.literal(bar(elapsed, total)).withStyle(ChatFormatting.AQUA));
-        tooltip.add(Component.translatable("jade.discapi.progress", clock(elapsed), clock(total))
-                .withStyle(ChatFormatting.GRAY));
+        tooltip.add(new JukeboxBarElement(elapsed, total));
     }
 
     @Override
@@ -115,19 +115,5 @@ public enum JukeboxProgressProvider implements IBlockComponentProvider {
         }
         int ticks = clockTicks + (int) ((now - clockAt) / TICK_MILLIS);
         return Math.max(0, Math.min(total, ticks));
-    }
-
-    private static String bar(int elapsed, int total) {
-        int filled = Math.max(0, Math.min(BARS, (int) ((long) elapsed * BARS / total)));
-        StringBuilder sb = new StringBuilder(BARS);
-        for (int i = 0; i < BARS; i++) {
-            sb.append(i < filled ? '|' : ':');
-        }
-        return sb.toString();
-    }
-
-    private static String clock(int ticks) {
-        int seconds = Math.max(0, ticks) / 20;
-        return String.format("%d:%02d", seconds / 60, seconds % 60);
     }
 }
