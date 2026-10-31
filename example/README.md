@@ -21,11 +21,13 @@ Two things worth knowing before you copy these into a world:
   `minecraft:music_disc.11` and marks the entry `"replace": true`. While the
   resource pack is enabled, the vanilla "11" disc therefore plays the same
   track.
-- The bundled `never_gonna_give_you_up.ogg` is **third-party audio**
-  ("Never Gonna Give You Up" by Rick Astley). It is included only so the example
-  runs out of the box, is **not** covered by this project's CC0 licence, and can
-  be deleted at any time - replace it with your own file and keep the same path.
-  Rights holders may request its removal through the issue tracker.
+- The bundled `never_gonna_give_you_up.ogg` (3:45) is **third-party audio**: a
+  fan cover of "Never Gonna Give You Up" - original by Rick Astley, cover by
+  莎士牛比亚 (Bilibili). The disc's artist line reads
+  `Rick Astley 莎士牛比亚（B站）`. It ships only so the example runs out of the
+  box, is **not** covered by this project's CC0 licence, and can be deleted at
+  any time - replace it with your own file and keep the same path. Rights
+  holders may request its removal through the issue tracker.
 
 中文
 ----
@@ -40,6 +42,7 @@ Two things worth knowing before you copy these into a world:
 
 - `minecraft:sound_event` 是**内置注册表**，数据包和资源包都造不出新事件 id，所以示例占用已有的
   `minecraft:music_disc.11` 并加 `"replace": true`。资源包启用期间，原版「11」唱片会放同一首歌。
-- 随附的 `never_gonna_give_you_up.ogg` 是**第三方音频**（Rick Astley《Never Gonna Give You Up》）。
+- 随附的 `never_gonna_give_you_up.ogg`（3:45）是**第三方音频**：原曲 Rick Astley《Never Gonna Give You Up》
+  的二创翻唱，翻唱者为 莎士牛比亚（B站）；唱片作者行写的是 `Rick Astley 莎士牛比亚（B站）`。
   只是为了示例开箱可用才附带，**不受**本项目 CC0 许可覆盖，随时可删——换成自己的文件、保持路径不变即可。
   权利人可通过 issue 要求移除。

@@ -13,7 +13,9 @@ So this pack overrides one existing vanilla event and feeds it our audio:
   assets/minecraft/sounds.json
         "music_disc.11": { "replace": true, "sounds": [ example_disc:music/never_gonna_give_you_up ] }
   assets/example_disc/sounds/music/never_gonna_give_you_up.ogg
-        the song: Ogg Vorbis, mono, ~76 kbps, 3:32
+        the song: Ogg Vorbis, mono, ~76 kbps, 3:45
+        a fan cover (二创) by Rick Astley + 莎士牛比亚 (Bilibili) - third-party
+        audio, not covered by this project's CC0 licence
   assets/example_disc/lang/en_us.json / zh_cn.json
         the song title used by the jukebox entry
 
@@ -36,7 +38,9 @@ Minecraft 的 `sound_event` 是**内置注册表**：条目只来自代码（原
   assets/minecraft/sounds.json
         "music_disc.11": { "replace": true, "sounds": [ example_disc:music/never_gonna_give_you_up ] }
   assets/example_disc/sounds/music/never_gonna_give_you_up.ogg
-        音乐本体：Ogg Vorbis、单声道、约 76 kbps、3:32
+        音乐本体：Ogg Vorbis、单声道、约 76 kbps、3:45
+        二创翻唱，原曲 Rick Astley、翻唱 莎士牛比亚（B站）——第三方音频，
+        不在本项目 CC0 范围
   assets/example_disc/lang/en_us.json / zh_cn.json
         唱片机条目用的曲名
 
