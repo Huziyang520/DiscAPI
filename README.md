@@ -56,7 +56,7 @@ A small library for adding custom music discs. It provides one generic disc item
 }
 ```
 
-5. A complete working pair - datapack, resource pack and a real song - lives in [`example/`](example/); copy those two folders to try the whole flow without writing any JSON yourself.
+5. A complete working pair - datapack, resource pack and a real song - lives in [`example/`](example/); see "The bundled example" below for where each folder goes.
 
 ### Adding the music file
 
@@ -77,6 +77,19 @@ Because the sound event has to already exist, a resource pack **replaces the aud
 ```
 
 The key must be the event id you put in `sound_event` (`minecraft:music_disc.11`), and `replace: true` drops the vanilla file list instead of appending to it. While this pack is enabled every disc using that event plays the new track - that is why mods often register their own event instead.
+
+### The bundled example
+
+`example/` ships a ready-to-run pair that uses everything above:
+
+- `example/example_datapack/` - `jukebox_song`, a shaped recipe and `/function example_disc:give_disc`; copy it to `<world>/datapacks/`.
+- `example/example_resourcepack/` - the audio, the `sounds.json` entry and the song title; copy it to `<instance>/resourcepacks/` and enable it.
+
+Enable the resource pack first, then open the world (or `/reload`). You get a red disc - tooltip "Artist: Rick Astley 莎士牛比亚（B站）", jukebox entry "Never Gonna Give You Up", 3:45 long - crafted from 1 gold ingot and 4 diamonds, comparator output 9.
+
+The example overrides the vanilla `minecraft:music_disc.11` event with its own audio, so while the resource pack is enabled that vanilla disc plays the same track. Its `never_gonna_give_you_up.ogg` is a fan cover (original by Rick Astley, cover by 莎士牛比亚 on Bilibili) bundled only so the example runs out of the box: it is third-party material, **not** covered by this project's CC0 licence, and may be replaced or deleted at any time.
+
+The `pack.mcmeta` files inside the example target 26.3 (resource 97.1, data 121.0); change the format numbers to run it on another version.
 
 ### Making your own disc item (mods)
 
@@ -155,7 +168,7 @@ Released under [CC0 1.0 Universal](LICENSE).
 }
 ```
 
-5. 一套完整可用的示例（数据包 + 资源包 + 真实音频）放在 [`example/`](example/)，把里面两个文件夹复制出去就能照跑，不用自己写 JSON。
+5. 一套完整可用的示例（数据包 + 资源包 + 真实音频）放在 [`example/`](example/)，各放哪里见下面「随附示例」。
 
 ### 放入音乐文件
 
@@ -176,6 +189,19 @@ Released under [CC0 1.0 Universal](LICENSE).
 ```
 
 键必须就是你在 `sound_event` 里写的那个事件（`minecraft:music_disc.11`）；`replace: true` 表示丢弃原版的文件列表而不是追加。资源包启用期间，凡是用这个事件的唱片都会放新歌——这也是模组倾向自己注册事件的原因。
+
+### 随附示例
+
+`example/` 里是一套可直接运行的示例，把上面三步都串起来了：
+
+- `example/example_datapack/` —— `jukebox_song`、合成配方、`/function example_disc:give_disc`；复制到 `<存档>/datapacks/`。
+- `example/example_resourcepack/` —— 音频、`sounds.json` 条目、曲名；复制到 `<实例>/resourcepacks/` 并启用。
+
+先启用资源包，再进存档（或 `/reload`）。得到一张红色唱片：提示「作者：Rick Astley 莎士牛比亚（B站）」、唱片机曲名 Never Gonna Give You Up、时长 3:45，合成是中间 1 金锭 + 四角 4 钻石，比较器输出 9。
+
+示例占用原版 `minecraft:music_disc.11` 事件并替换其音频，所以资源包启用期间那张原版唱片会放同一首歌。随附的 `never_gonna_give_you_up.ogg` 是二创翻唱（原曲 Rick Astley，翻唱 莎士牛比亚／B站），只为示例开箱可用才附带：属第三方素材，**不受**本项目 CC0 许可覆盖，随时可替换或删除。
+
+示例内 `pack.mcmeta` 的格式号对应 26.3（资源 97.1、数据 121.0），换版本要改。
 
 ### 自定义唱片物品（模组）
 
