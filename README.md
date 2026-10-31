@@ -24,9 +24,11 @@ A small library for adding custom music discs. It provides one generic disc item
   "comparator_output": 9,
   "description": { "translate": "jukebox_song.your_pack.my_song" },
   "length_in_seconds": 120.0,
-  "sound_event": "your_pack:music/my_song"
+  "sound_event": "minecraft:music_disc.11"
 }
 ```
+
+`sound_event` must be an **existing** sound event: `minecraft:sound_event` is a built-in registry that only code extends, so a datapack or resource pack cannot invent `your_pack:music/my_song`. Point it at a vanilla (or modded) event and let the resource pack supply that event's audio - see "Adding the music file". A mod that registers its own event (as Sivon does) can use its own id instead.
 
 2. Put the song text in `assets/<your_pack>/lang/en_us.json` (`jukebox_song.your_pack.my_song`), or use a plain `text` field instead of `translate`.
 
@@ -56,14 +58,15 @@ A small library for adding custom music discs. It provides one generic disc item
 
 ### Adding the music file
 
-The sound itself is a normal resource pack file:
+Because the sound event has to already exist, a resource pack **replaces the audio of an existing event**. Override `music_disc.11` (what the example uses):
 
 1. `assets/<your_pack>/sounds/music/my_song.ogg` (Ogg Vorbis, mono is recommended so the disc is positional).
-2. `assets/<your_pack>/sounds.json`:
+2. `assets/minecraft/sounds.json` - note the `minecraft` namespace, that is where the event lives:
 
 ```json
 {
-  "music.my_song": {
+  "music_disc.11": {
+    "replace": true,
     "sounds": [
       { "name": "your_pack:music/my_song", "stream": true }
     ]
@@ -71,7 +74,7 @@ The sound itself is a normal resource pack file:
 }
 ```
 
-The `sound_event` in step 1 must match the `sounds.json` key, prefixed with your namespace (`your_pack:music.my_song` here).
+The key must be the event id you put in `sound_event` (`minecraft:music_disc.11`), and `replace: true` drops the vanilla file list instead of appending to it. While this pack is enabled every disc using that event plays the new track - that is why mods often register their own event instead.
 
 ### Making your own disc item (mods)
 
@@ -118,9 +121,11 @@ Released under [CC0 1.0 Universal](LICENSE).
   "comparator_output": 9,
   "description": { "translate": "jukebox_song.your_pack.my_song" },
   "length_in_seconds": 120.0,
-  "sound_event": "your_pack:music/my_song"
+  "sound_event": "minecraft:music_disc.11"
 }
 ```
+
+`sound_event` 必须指向**已存在**的声音事件：`minecraft:sound_event` 是内置注册表，只有代码（原版或模组）能往里加，数据包/资源包造不出 `your_pack:music/my_song`。做法是引用一个原版（或模组）事件，由资源包替换它的音频——见「放入音乐文件」。模组自己注册事件（如司凤）才可以用自己的 id。
 
 2. 在 `assets/<你的包>/lang/zh_cn.json` 里补上 `jukebox_song.your_pack.my_song` 的文本；也可以把 `translate` 换成纯 `text`。
 
@@ -150,14 +155,15 @@ Released under [CC0 1.0 Universal](LICENSE).
 
 ### 放入音乐文件
 
-音乐本体是普通的资源包内容：
+因为声音事件必须已经存在，资源包的做法是**替换某个已有事件的音频**。以示例用的 `music_disc.11` 为例：
 
 1. `assets/<你的包>/sounds/music/my_song.ogg`（Ogg Vorbis；建议单声道，这样唱片声音有距离衰减）。
-2. `assets/<你的包>/sounds.json`：
+2. `assets/minecraft/sounds.json`——注意命名空间是 `minecraft`，事件住在那里：
 
 ```json
 {
-  "music.my_song": {
+  "music_disc.11": {
+    "replace": true,
     "sounds": [
       { "name": "your_pack:music/my_song", "stream": true }
     ]
@@ -165,7 +171,7 @@ Released under [CC0 1.0 Universal](LICENSE).
 }
 ```
 
-第 1 步里的 `sound_event` 要等于这里 `sounds.json` 的键再加命名空间前缀（本例为 `your_pack:music.my_song`）。
+键必须就是你在 `sound_event` 里写的那个事件（`minecraft:music_disc.11`）；`replace: true` 表示丢弃原版的文件列表而不是追加。资源包启用期间，凡是用这个事件的唱片都会放新歌——这也是模组倾向自己注册事件的原因。
 
 ### 自定义唱片物品（模组）
 
