@@ -1,0 +1,8 @@
+{
+  "comparator_output": 9,
+  "description": {
+    "translate": "jukebox_song.example_disc.never_gonna_give_you_up"
+  },
+  "length_in_seconds": 212.31,
+  "sound_event": "minecraft:music_disc.11"
+}

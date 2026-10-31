@@ -56,6 +56,8 @@ A small library for adding custom music discs. It provides one generic disc item
 }
 ```
 
+5. A complete working pair - datapack, resource pack and a real song - lives in [`example/`](example/); copy those two folders to try the whole flow without writing any JSON yourself.
+
 ### Adding the music file
 
 Because the sound event has to already exist, a resource pack **replaces the audio of an existing event**. Override `music_disc.11` (what the example uses):
@@ -152,6 +154,8 @@ Released under [CC0 1.0 Universal](LICENSE).
   }
 }
 ```
+
+5. 一套完整可用的示例（数据包 + 资源包 + 真实音频）放在 [`example/`](example/)，把里面两个文件夹复制出去就能照跑，不用自己写 JSON。
 
 ### 放入音乐文件
 

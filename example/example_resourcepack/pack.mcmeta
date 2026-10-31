@@ -1,0 +1,13 @@
+{
+  "pack": {
+    "description": "DiscAPI example disc: sounds + song title (resource pack half)",
+    "min_format": [
+      97,
+      1
+    ],
+    "max_format": [
+      97,
+      1
+    ]
+  }
+}
