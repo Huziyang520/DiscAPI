@@ -30,13 +30,29 @@ A small library for adding custom music discs. It provides one generic disc item
 
 2. Put the song text in `assets/<your_pack>/lang/en_us.json` (`jukebox_song.your_pack.my_song`), or use a plain `text` field instead of `translate`.
 
-3. Hand out the disc. Colors are `[outer ring, inner ring]` in ARGB, the artist line is optional:
+3. Hand out the disc. `jukebox_playable` takes the song id as a plain string (it is a reference to the `jukebox_song` entry, not an object). Colors are `[outer, inner, edge]` in ARGB - the three layers of the template - and the artist line is optional:
 
 ```
-/give @p discapi:disc[jukebox_playable={song:"your_pack:my_song"},custom_model_data={colors:[-14725492,-5711617]},discapi:artist="Your Name"]
+/give @p discapi:disc[jukebox_playable="your_pack:my_song",custom_model_data={colors:[-14725492,-5711617,-12566464]},discapi:artist="Your Name"]
 ```
 
-4. A recipe is the usual datapack recipe with the same item and components.
+4. A recipe is the usual datapack recipe with the same item and components. Since 26.x an ingredient is a **holder set**, so write the item id on its own (`"minecraft:diamond"`) or as a list (`["minecraft:diamond"]`) - the old `{"item": "minecraft:diamond"}` form is rejected:
+
+```json
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [" D ", "DGD", " D "],
+  "key": { "D": ["minecraft:diamond"], "G": ["minecraft:gold_ingot"] },
+  "result": {
+    "id": "discapi:disc",
+    "components": {
+      "minecraft:jukebox_playable": "your_pack:my_song",
+      "minecraft:custom_model_data": { "colors": [-14725492, -5711617, -12566464] },
+      "discapi:artist": "Your Name"
+    }
+  }
+}
+```
 
 ### Adding the music file
 
@@ -108,13 +124,29 @@ Released under [CC0 1.0 Universal](LICENSE).
 
 2. 在 `assets/<你的包>/lang/zh_cn.json` 里补上 `jukebox_song.your_pack.my_song` 的文本；也可以把 `translate` 换成纯 `text`。
 
-3. 发放唱片。颜色是 `[外圈, 内圈]` 的 ARGB，作者行可选：
+3. 发放唱片。`jukebox_playable` 直接写歌曲 id 字符串（它是对 `jukebox_song` 条目的引用，不是对象）。颜色是 `[外圈, 内圈, 厚度]` 的 ARGB（正好对应模板三层），作者行可选：
 
 ```
-/give @p discapi:disc[jukebox_playable={song:"your_pack:my_song"},custom_model_data={colors:[-14725492,-5711617]},discapi:artist="作者名"]
+/give @p discapi:disc[jukebox_playable="your_pack:my_song",custom_model_data={colors:[-14725492,-5711617,-12566464]},discapi:artist="作者名"]
 ```
 
-4. 配方就是普通的数据包配方，物品与组件照抄上面这一行。
+4. 配方就是普通的数据包配方，物品与组件照抄上面这一行。26.x 起**配料是 holder set**，直接写物品 id（`"minecraft:diamond"`）或用列表（`["minecraft:diamond"]`），旧的 `{"item": "minecraft:diamond"}` 写法会被拒绝：
+
+```json
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [" D ", "DGD", " D "],
+  "key": { "D": ["minecraft:diamond"], "G": ["minecraft:gold_ingot"] },
+  "result": {
+    "id": "discapi:disc",
+    "components": {
+      "minecraft:jukebox_playable": "your_pack:my_song",
+      "minecraft:custom_model_data": { "colors": [-14725492, -5711617, -12566464] },
+      "discapi:artist": "作者名"
+    }
+  }
+}
+```
 
 ### 放入音乐文件
 
