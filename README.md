@@ -56,7 +56,7 @@ A small library for adding custom music discs. It provides one generic disc item
 }
 ```
 
-5. A complete working pair - datapack, resource pack and a real song - lives in [`example/`](example/); see "The bundled example" below for where each folder goes.
+5. A complete working pair - datapack, resource pack and a real song - lives in [`example/`](https://github.com/Huziyang520/DiscAPI/tree/26.X/example); see "The bundled example" below for where each folder goes.
 
 ### Adding the music file
 
@@ -107,7 +107,7 @@ The item model then points at `discapi:item/disc_template`.
 
 ### License
 
-Released under [CC0 1.0 Universal](LICENSE).
+Released under [CC0 1.0 Universal](https://github.com/Huziyang520/DiscAPI/blob/26.X/LICENSE).
 
 ### Links
 
@@ -168,7 +168,7 @@ Released under [CC0 1.0 Universal](LICENSE).
 }
 ```
 
-5. 一套完整可用的示例（数据包 + 资源包 + 真实音频）放在 [`example/`](example/)，各放哪里见下面「随附示例」。
+5. 一套完整可用的示例（数据包 + 资源包 + 真实音频）放在 [`example/`](https://github.com/Huziyang520/DiscAPI/tree/26.X/example)，各放哪里见下面「随附示例」。
 
 ### 放入音乐文件
 
@@ -219,7 +219,7 @@ registry.item("my_disc", DiscApi.discFactory(DiscApi.songKey("mymod", "my_song")
 
 ### 许可证
 
-本项目基于 [CC0 1.0 Universal](LICENSE) 发布。
+本项目基于 [CC0 1.0 Universal](https://github.com/Huziyang520/DiscAPI/blob/26.X/LICENSE) 发布。
 
 ### 链接
 
